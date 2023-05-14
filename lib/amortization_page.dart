@@ -109,7 +109,7 @@ class _AmortizationPageState extends State<AmortizationPage> {
                         },
                       ),
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     Expanded(
                       child: TextFormField(
                         controller: _termMonthsController,
@@ -128,21 +128,25 @@ class _AmortizationPageState extends State<AmortizationPage> {
                   ],
                 ),
                 const SizedBox(height: 16),
-                ElevatedButton(
-                  child: const Text('Calculate'),
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      _calculateAmortizationSchedule();
-                    }
-                  },
-                ),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  child: const Text('Clear'),
-                  onPressed: () {
-                    _clearValues();
-                  },
-                ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      ElevatedButton(
+                        child: const Text('Calculate'),
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            _calculateAmortizationSchedule();
+                          }
+                        },
+                      ),
+                      const SizedBox(width: 16),
+                      ElevatedButton(
+                        child: const Text('Clear'),
+                        onPressed: () {
+                          _clearValues();
+                        },
+                      )
+                    ]),
                 const SizedBox(height: 16),
                 if (_monthlyPayment > 0)
                   Text(

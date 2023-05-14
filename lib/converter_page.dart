@@ -16,9 +16,15 @@ class _ConverterPageState extends State<ConverterPage> {
 
   void _convertCelsiusToFahrenheit() {
     setState(() {
-      _celsius = double.parse(_celsiusController.text);
-      _fahrenheit = (_celsius * 9 / 5) + 32;
-      _fahrenheitController.text = _fahrenheit.toStringAsFixed(2);
+      if (_celsiusController.text.isNotEmpty) {
+        _celsius = double.parse(_celsiusController.text);
+        _fahrenheit = (_celsius * 9 / 5) + 32;
+        _fahrenheitController.text = _fahrenheit.toStringAsFixed(2);
+      } else if (_fahrenheitController.text.isNotEmpty) {
+        _fahrenheit = double.parse(_fahrenheitController.text);
+        _celsius = (_fahrenheit - 32) * 5 / 9;
+        _celsiusController.text = _celsius.toStringAsFixed(2);
+      }
     });
   }
 
@@ -55,7 +61,7 @@ class _ConverterPageState extends State<ConverterPage> {
           ),
           const SizedBox(height: 16),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               ElevatedButton(
                 onPressed: _convertCelsiusToFahrenheit,
