@@ -62,7 +62,7 @@ class _AmortizationPageState extends State<AmortizationPage> {
         child: Form(
           key: _formKey,
           child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 TextFormField(
                   controller: _loanAmountController,

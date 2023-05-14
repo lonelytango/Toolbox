@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './converter_page.dart';
 import './amortization_page.dart';
+import './apy_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
   }
 
   @override
@@ -52,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage>
             tabs: const [
               Tab(text: 'Temp Converter'),
               Tab(text: 'Amortization'),
+              Tab(text: 'APY')
             ],
           ),
         ),
@@ -60,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage>
           children: const [
             ConverterPage(),
             AmortizationPage(),
+            APYCalculator()
           ],
         ));
   }

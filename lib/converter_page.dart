@@ -36,7 +36,7 @@ class _ConverterPageState extends State<ConverterPage> {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           TextField(
             controller: _celsiusController,
